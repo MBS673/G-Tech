@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GardenSpace: Your Garden's Smartest Guardian</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Navbar */
+        nav {
+    position: sticky; /* Makes the navbar stick at the top when scrolling */
+    top: 0; /* Ensures it sticks to the top of the page */
+    z-index: 1000; /* Ensures the navbar stays above other elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #2e7d32;
+    color: white;
+    width: 100%; /* Ensures the navbar takes full width */
+}
+
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+	
+	/* Logo Image Styling */
+        .logo img {
+            width: 100px; /* Adjust the size as needed */
+        }
+
+        /* Search Bar */
+        .search-bar {
+            margin-left: 20px;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        
+
+        /* Hero Section */
+        .hero {
+            background-image: url('gardenspace.jpg');
+            background-size: cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta {
+            padding: 10px 20px;
+            background-color: #1b5e20;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .learn-more {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+
+        .learn-more:hover, .cta:hover {
+            background-color: white;
+            color: #1b5e20;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .feature {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background-color: #e8f5e9;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .step {
+            width: 22%;
+        }
+
+        /* App Section */
+        .app-section {
+            padding: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .app-content {
+            display: flex;
+        }
+
+        .app-description {
+            margin-left: 30px;
+        }
+ 
+	/* About Us Section */
+        .about-us {
+            padding: 50px;
+            background-color: #e0f7fa;
+            text-align: center;
+        }
+
+        .team-members {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            width: 30%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #c8e6c9;
+            padding: 50px;
+            text-align: center;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .pricing-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .price {
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 50px;
+            background-color: #e0f2f1;
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <a href=""><img src="logo.png" alt="GardenSpace Logo"></a>
+        </div>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#app">App</a></li>
+	    <li><a href="#about-us">About Us</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+	<div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search...">
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Your Garden's Smartest Guardian</h1>
+            <p>Watering, Monitoring, Protecting – All in One</p>
+            <a href="#pricing" class="cta">Order Now</a>
+            <a href="#features" class="cta learn-more">Learn More</a>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Features</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <img src="360 cam.png" alt="Smart Camera">
+                <h3>Smart Camera</h3>
+                <p>Monitors your garden 24/7 with a 360-degree view.</p>
+            </div>
+            <div class="feature">
+                <img src="water.png" alt="Smart Watering">
+                <h3>Smart Watering System</h3>
+                <p>Automated, intelligent watering connected to your water supply.</p>
+            </div>
+            <div class="feature">
+                <img src="pest.png" alt="Pest Deterrent">
+                <h3>Pest Deterrent</h3>
+                <p>Motion detection combined with water jets to keep pests at bay.</p>
+            </div>
+            <div class="feature">
+                <img src="solar.png" alt="Eco Friendly">
+                <h3>Environmentally Friendly</h3>
+                <p>Solar-powered, eliminating the need for batteries or charging.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>Step 1</h3>
+                <p>Connect to your water supply.</p>
+            </div>
+            <div class="step">
+                <h3>Step 2</h3>
+                <p>Sync with your Wi-Fi and control via the app.</p>
+            </div>
+            <div class="step">
+                <h3>Step 3</h3>
+                <p>Let GardenSpace handle 100 sq. ft. of garden care.</p>
+            </div>
+            <div class="step">
+                <h3>Step 4</h3>
+                <p>Grow and harvest $700 of produce annually.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Section -->
+    <section id="app" class="app-section">
+        <h2>The App</h2>
+        <div class="app-content">
+            <img src="app.png" alt="App Mockup">
+            <div class="app-description">
+                <h3>Your Garden Command Centre</h3>
+                <p>Monitor your garden, adjust watering schedules, and receive real-time updates through the GardenSpace app, available on mobile and desktop.</p>
+            </div>
+        </div>
+    </section>
+
+<!-- About Us Section -->
+    <section id="about-us" class="about-us">
+        <h2>About Us</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="team-member-1.jpg" alt="Team Member 1">
+                <h3>Gin san</h3>
+                <p>Marketing Director/CEO</p>
+                <p>Gin manages the marketing strategy and public relations, spreading the word about GardenSpace's environmental impact.</p>
+            </div>
+            <div class="team-member">
+                <img src="team-member-2.jpg" alt="Team Member 2">
+                <h3>The Kid</h3>
+                <p>Lead Engineer</p>
+                <p>Kid leads the development of the GardenSpace product, ensuring the technology is top-tier and user-friendly.</p>
+            </div>
+            <div class="team-member">
+                <img src="team-member-3.jpg" alt="Team Member 3">
+                <h3>Kiny</h3>
+                <p>IT Management</p>
+                <p>Kiny oversees the strategic direction of GardenSpace, bringing years of experience in tech innovation and sustainability.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Review Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>Reviews</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial">
+                <p>"GardenSpace has transformed the way I garden. I never have to worry about pests anymore!" - Snoop Dog</p>
+            </div>
+            <div class="testimonial">
+                <p>"I love how easy it is to control everything from the app. It's a game-changer." - Mr.Capybara</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <h2>Pricing</h2>
+        <div class="pricing-card">
+            <h3>Basic Package</h3>
+            <p>1 GardenSpace robot, app access, and support.</p>
+            <p class="price">$500</p>
+            <a href="#contact" class="cta">Order Now</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 GardenSpace. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Search Bar Functionality
+	document.getElementById('searchInput').addEventListener('input', function() {
+    	const query = this.value.toLowerCase();
+    	const sections = document.querySelectorAll('section');
+    	let firstMatch = null;
+
+    	sections.forEach(section => {
+        	const textContent = section.textContent.toLowerCase();
+        		if (textContent.includes(query)) {
+           		 	section.classList.add('highlight');
+            		if (!firstMatch) {
+                		firstMatch = section;  // Store the first matching section
+            			}
+        		} else {
+            			section.classList.remove('highlight');
+        			}
+    		});
+
+    // Scroll to the first matching section
+    if (firstMatch) {
+        firstMatch.scrollIntoView({ behavior: 'smooth' });
+    }
+});
+
+        // Contact Form Alert
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for contacting us!');
+        });
+    </script>
+</body>
+</html>
